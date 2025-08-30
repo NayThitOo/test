@@ -1,37 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Mama</title>
-    <style>
-        body {
-            background-color: #00008B; /* Dark pink background */
-            color: white;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        img {
-            max-width: 400px; /* Larger image size for laptop */
-            margin: 20px;
-            border-radius: 10px; /* Rounded corners */
-        }
-        h1 {
-            font-size: 2.5em; /* Larger heading */
-        }
-        p {
-            font-size: 1.2em; /* Larger paragraph text */
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For My Girlfriend — Our Memories & Letter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink-50:#fff5f8;
+      --pink-100:#ffe6ef; /* page background */
+      --pink-200:#ffd1e0;
+      --pink-300:#ffb6c1; /* accents */
+      --pink-400:#ff8fb0; /* buttons */
+      --ink:#5a2a3a;
+      --card:#ffffffcc;
+      --shadow: 0 10px 25px rgba(234, 76, 136, 0.18);
+    }
+    html,body{margin:0;height:100%;}
+    body{
+      font-family:"Nunito", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 800px at -10% -20%, #fff, transparent 70%),
+        radial-gradient(1200px 800px at 110% 120%, #fff, transparent 70%),
+        var(--pink-100);
+    }
+    .container{max-width:1100px;margin:0 auto;padding:24px;}
+    header{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:saturate(140%) blur(6px);
+      background:linear-gradient(180deg, #fff8fbcc, #fff8fb00);
+      border-bottom:1px solid #ffd7e6;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;padding:16px 0 14px;
+    }
+    .logo{width:36px;height:36px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #fff 0 30%, #ffc5d6 31% 100%);
+      box-shadow: inset 0 2px 6px rgba(255,255,255,.8), 0 2px 6px rgba(234,76,136,.25);
+      position:relative;
+    }
+    .logo:after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 6px 16px rgba(234, 76, 136,.25)}
+    h1{font-family:"Playfair Display", serif;margin:0;font-size:clamp(24px,3vw,34px);}
+    .sub{margin:2px 0 0;font-size:14px;color:#7e455a}
+
+    .hero{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch;margin-top:20px;
+    }
+    @media (max-width:900px){.hero{grid-template-columns:1fr;}}
+
+    .letter{
+      background:var(--card);border:1px solid #ffd7e6;border-radius:22px;padding:22px 18px 18px;
+      box-shadow:var(--shadow);
+    }
+    .letter h2{font-family:"Playfair Display", serif;margin:0 0 12px;font-size:clamp(20px,2.4vw,26px)}
+    .letter .meta{font-size:12px;color:#8b4f65;margin-bottom:12px}
+    .paper{
+      background:linear-gradient(#fff, #fff8fb);
+      border-radius:14px;border:1px dashed #ffc3d6;padding:16px;line-height:1.8;
+      min-height:280px;
+    }
+    .sign{margin-top:14px;font-family:"Playfair Display", serif;font-size:18px}
+
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    button{
+      appearance:none;border:0;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer;
+      background:var(--pink-400);color:#fff;box-shadow:0 6px 14px rgba(234,76,136,.25);
+      transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+    }
+    button.secondary{background:#fff;color:var(--ink);border:1px solid #ffd1e0}
+    button:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(234,76,136,.28)}
+
+    .gallery{
+      background:var(--card);border:1px solid #ffd7e6;border-radius:22px;padding:18px;box-shadow:var(--shadow);
+    }
+    .gallery h2{font-family:"Playfair Display", serif;margin:0 0 10px;font-size:clamp(20px,2.4vw,26px)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));gap:12px}
+    .card{
+      position:relative;overflow:hidden;border-radius:16px;background:#fff;aspect-ratio:1/1;
+      border:1px solid #ffe1ec;
+    }
+    .card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05)}
+    .card:after{content:"";position:absolute;inset:0;box-shadow:inset 0 -40px 70px rgba(0,0,0,.12);opacity:.6}
+    .cap{
+      position:absolute;left:8px;bottom:8px;right:8px;font-size:12px;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35);
+    }
+
+    footer{opacity:.8;text-align:center;font-size:12px;margin:32px 0 16px}
+    a{color:#b03d66;text-underline-offset:3px}
+  </style>
 </head>
 <body>
-    <h1>Only For Mama<3</h1>
-    <p>Start Era😆😆</p>
-    <img src="photo_2025-08-31_13-47-09.jpg" alt="Shushan1">
-   
+  <header>
+    <div class="container brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>For My Love <span aria-hidden="true">💖</span></h1>
+        <div class="sub">Our memories, our smiles, our story.</div>
+      </div>
+    </div>
+  </header>
 
+  <main class="container">
+    <section class="hero">
+      <!-- LETTER PANEL -->
+      <article class="letter">
+        <h2>A Letter to You</h2>
+        <div class="meta">Written on <time id="today"></time></div>
+        <div class="paper" id="letter" contenteditable="true">
+          Dear my favorite person,
+          <br /><br />
+          From the little moments to the big adventures, you make everything brighter. Thank you for your kindness, your laugh, and the way you make my heart feel like home. I’m grateful for you—today and always.
+          <br /><br />
+          Here’s to more sunsets, silly photos, and soft hugs. I love you more than words can say.
+          <br /><br />
+          Always yours,
+          <div class="sign">&mdash; Your Name</div>
+        </div>
+        <div class="actions">
+          <button onclick="window.print()">Print Letter</button>
+          <button class="secondary" onclick="downloadLetter()">Download Letter (.txt)</button>
+        </div>
+      </article>
+
+      <!-- GALLERY PANEL -->
+      <section class="gallery">
+        <h2>Photo Gallery</h2>
+        <div class="grid">
+          <!-- Replace the src values with your own image links. Duplicate .card blocks to add more photos. -->
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1200&auto=format&fit=crop" alt="Us at the beach">
+            <figcaption class="cap">Beach day</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=1200&auto=format&fit=crop" alt="Coffee date">
+            <figcaption class="cap">Coffee date</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?q=80&w=1200&auto=format&fit=crop" alt="City lights">
+            <figcaption class="cap">City lights</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1520975734207-21577d8bcdcf?q=80&w=1200&auto=format&fit=crop" alt="Warm sunset">
+            <figcaption class="cap">Warm sunset</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" alt="Flowers">
+            <figcaption class="cap">Flowers for you</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=1200&auto=format&fit=crop" alt="Laughs">
+            <figcaption class="cap">Laughs</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1520975682031-2208d157c9e2?q=80&w=1200&auto=format&fit=crop" alt="Mountains">
+            <figcaption class="cap">Little getaway</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://images.unsplash.com/photo-1446426156356-92b664d86b77?q=80&w=1200&auto=format&fit=crop" alt="Books and blankets">
+            <figcaption class="cap">Cozy day</figcaption>
+          </figure>
+          <!-- More placeholders -->
+          <figure class="card"><img src="https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=1200&auto=format&fit=crop" alt="Smiles"><figcaption class="cap">Smiles</figcaption></figure>
+          <figure class="card"><img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=1200&auto=format&fit=crop" alt="Road trip"><figcaption class="cap">Road trip</figcaption></figure>
+          <figure class="card"><img src="https://images.unsplash.com/photo-1526178618720-7f1a51d3532f?q=80&w=1200&auto=format&fit=crop" alt="Park"><figcaption class="cap">Park picnic</figcaption></figure>
+          <figure class="card"><img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1200&auto=format&fit=crop" alt="Sunrise"><figcaption class="cap">Sunrise</figcaption></figure>
+          <figure class="card"><img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?q=80&w=1200&auto=format&fit=crop" alt="Concert"><figcaption class="cap">Concert night</figcaption></figure>
+          <figure class="card"><img src="https://images.unsplash.com/photo-1453814235491-3cfac3999928?q=80&w=1200&auto=format&fit=crop" alt="Ice cream"><figcaption class="cap">Ice cream</figcaption></figure>
+          <figure class="card"><img src="https://images.unsplash.com/photo-1462307180003-ade8b1b72644?q=80&w=1200&auto=format&fit=crop" alt="Stargazing"><figcaption class="cap">Stargazing</figcaption></figure>
+          <figure class="card"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=1200&auto=format&fit=crop" alt="Movie night"><figcaption class="cap">Movie night</figcaption></figure>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      Made with <span aria-hidden="true">💗</span> — replace photos and text to make it yours.
+    </footer>
+  </main>
+
+  <script>
+    // Set today's date in a cute format
+    const t = new Date();
+    const fmt = new Intl.DateTimeFormat(undefined, { year:'numeric', month:'long', day:'numeric' });
+    document.getElementById('today').textContent = fmt.format(t);
+
+    // Download the letter as a .txt file
+    function downloadLetter(){
+      const text = document.getElementById('letter').innerText.trim();
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'letter.txt'; a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
 </body>
 </html>
-
